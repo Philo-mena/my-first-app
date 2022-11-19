@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 const UserForm = (props) => {
   console.log(props);
@@ -12,6 +13,7 @@ const UserForm = (props) => {
     let newStudent = {
       name: name,
       gen: gen,
+      id: uuid(),
     };
     console.log(newStudent);
     props.addStudent(newStudent);
