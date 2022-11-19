@@ -8,7 +8,11 @@ const Users = (props) => {
       {pupils.map((item) => {
         return (
           <div>
-            <User student={item} updateData={props.updateData} />
+            <User
+              student={item}
+              updateData={props.updateData}
+              deleteData={props.deleteData}
+            />
           </div>
         );
       })}

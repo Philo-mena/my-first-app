@@ -88,6 +88,7 @@ class App extends Component {
             </Col>
             <Col>
               <Users
+                deleteData={this.deleteStudent}
                 students={this.state.students}
                 updateData={this.editStudents}
               />

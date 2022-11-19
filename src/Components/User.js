@@ -23,7 +23,7 @@ const User = (props) => {
           <Button href="#" onClick={handleShow}>
             Edit
           </Button>
-          <Button href="#" variant="danger">
+          <Button onClick={() => props.deleteData(pupil.id)} variant="danger">
             Delete
           </Button>
         </Card.Body>
