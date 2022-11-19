@@ -1,7 +1,12 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card, Modal } from "react-bootstrap";
+import EditForm from "./EditForm";
 
 const User = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   let pupil = props.student;
   return (
     <div>
@@ -15,10 +20,31 @@ const User = (props) => {
             height: {pupil.height}
           </Card.Subtitle>
 
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+          <Button href="#" onClick={handleShow}>
+            Edit
+          </Button>
+          <Button href="#" variant="danger">
+            Delete
+          </Button>
         </Card.Body>
       </Card>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <EditForm student={pupil} updateData={props.updateData} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
